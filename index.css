@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', 'Prompt', system-ui, sans-serif;
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, #root {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+/* Glass utility */
+@layer components {
+  .glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-glass;
+  }
+  .glass-dark {
+    @apply bg-neutral-900/70 backdrop-blur-xl border border-white/10 text-white;
+  }
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full
+           bg-accent text-white text-sm font-medium tracking-wide
+           hover:bg-accent-hover active:scale-[0.98]
+           transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full
+           text-sm font-medium text-neutral-700 hover:text-accent
+           hover:bg-neutral-100 transition-all duration-200;
+  }
+  .input-base {
+    @apply w-full px-4 py-2.5 rounded-xl border border-neutral-200 bg-white/70
+           text-sm placeholder:text-neutral-400
+           focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent
+           transition-all duration-200;
+  }
+}
+
+/* Subtle grid background pattern */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Scrollbar — minimal */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #e5e5e5; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #d4d4d4; }
+
+/* Smooth focus ring */
+*:focus-visible {
+  outline: 2px solid #DC2626;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
